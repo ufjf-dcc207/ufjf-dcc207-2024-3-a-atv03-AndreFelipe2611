@@ -16,10 +16,14 @@ export default function Animal({
 }: AnimalProps){
     return(
         <div className="animal">
-            <div>{icone}</div>
-            <div>{nome}</div>
-            <div>{peso.toLocaleString()}kg</div>
-            <div>Em extinção:{emExtincao}</div>
+           <div className="icone">{icone}</div>
+           <div className="nome">{nome}</div>
+            {peso > 0 ? (
+            <div className="peso">{peso.toLocaleString()}kg</div>
+            ) : (
+                <div className="peso">Peso não disponível</div>
+            )}
+            {emExtincao && <div className="extincao">Em Extinção!</div>}
         </div>
     );
 }
